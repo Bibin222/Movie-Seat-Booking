@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <style>
+    html{
+      height: 100%;
+    }
+    
+    body{
+       background-color: rgb(254, 253, 252);
+      font-family: "Arial", Helvetica, sans-serif;
+      position: relative;
+      width: 100%;
+    }
+    
+    #container{
+      position: relative;
+      border-radius: 25px;
+      width: 800px;
+      height: 600px;
+      padding-left: 200px;
+      padding-top: 50px;
+      text-align: center;
+      position:centre;
+      height: 100%;
+      
+      
+      
+    }
+    
+    
+    
+    fieldset, #movies_booked{
+      border:1px solid #AED0EA;
+      border: radius 20px;
+      box-shadow:0 0 10px #D7EBF9;
+    }
+    
+    legend, #disount_title{
+      color: #2779AA;
+      font-size: 120%;
+      text-align: center;
+      background-color: white;
+    }
+    
+    p{
+      overflow: hidden;
+    }
+    
+    label{
+        font-weight: bold;
+      width: 50%;
+      text-align: right;
+      float: left;
+      clear: both;
+      color: #121313;
+    }
+    
+    p input, p select{
+      width: 40%;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      float: left;
+      margin-left: 5%;
+      margin-right: 5%;
+      color: #2779AA;
+    }
+    
+    #theaters,#time, #total_price, #movies_list, li, #perTicketPrice, #note{
+      color: #2779AA;
+    }
+    
+    p span, li{
+      text-align: left;
+    }
+    
+    #submit_wrapper{
+      text-align: center;
+    }
+    
+    #submit{
+      font-size: 13px;
+    }
+    
+    #discount, #perTicketPrice{
+      text-align: left;
+    }
+    
+    #dateNote{
+      font-size: 9px;
+    }
+    </style>
+    
+    <div id="container">
+      <div id="form">
+        <form id="book_tickets">
+          <fieldset>
+            <legend>Booking Details</legend>
+            <p>Purchase your tickets online! </p>
+            <ul>
+              <li>Rs 500 - Gold</li>
+              <li>Rs 200 - Premium Plus</li>
+              <li>Rs 150 - Premium</li>
+            </ul>
+    
+            <p>
+              <label for="movie_name">Movie</label>
+              <select id="movie_name" name="movie_name" required autofocus>
+                <option></option>
+                <option value="Neru">Neru</option>
+                <option value="Salaar">Neru</option>
+                <option value="Dunki">Neru</option>
+                <option value="Falimy">Neru</option>
+              </select>
+            </p>
+    
+            <p>
+              <label for="theaters">Theaters</label>
+              <select id="theaters" required>
+                <option></option>
+                <option value="Theater 3">Pvr - Oberon Mall</option>
+              </select>
+            </p>
+
+
+            <p>
+              <label for="time">Time</label>
+              <select id="time" required>
+                <option></option>
+                <option value="Time">SCREEN 1 - 10:00 AM</option>
+                <option value="Time 2">SCREEN 2 - 5:00 PM</option>
+                <option value="Time 3">SCREEN 3 - 10:00 PM</option>
+           </select>
+           </p>
+        
+            <p>
+              <label for="date">Date<br/><span id="dateNote"> <a href="https://support.mozilla.org/en-US/questions/986096"></a></span></label>
+              <input type="date" name="date" id="date" min="today" required />
+            </p>
+    
+            <p>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" required />
+            </p>
+    
+  
+   
+    <p>
+   <label for="tickets_quantity">Gold </label>
+   <input type="number" min="0" placeholder="seatcount" name="seats gold" id="Seats Gold" required />
+    <br><br>  
+  
+    <label for="premiumplus">Premium Plus</label>
+    <input type="number" min="0" placeholder="seatcount" name="seats gold" id="Seats Premium Plus" required />
+     <br><br> 
+     
+     
+     <label for="premium">Premium</label>
+   <input type="number" min="0" placeholder="seatcount" name="seats gold" id="Seats Premium" required />
+    <br><br>  
+  </p>
+    <br><br>
+    <button type="submit" id="submitButton">Submit</button>
+    
+    <p id="totalPrice"></p>
+
+
+
+<script>
+
+   var goldseats = document.getElementById('Seats Gold');
+   var premiumplusseats = document.getElementById('Seats Premium Plus');
+   var premiumseats = document.getElementById('Seats Premium');
+   var submitBtn = document.getElementById('submitButton');
+   var outputPara = document.getElementById('totalPrice');
+   
+
+   function calcPrice(qty, price){
+     return qty * price;
+   }
+
+ 
+   function getMessage(goldseats, total){
+     return outputPara.innerHTML = ' Total Ticket Amount is Rs ' + total + '<br><br>';
+   }
+ 
+
+   submitBtn.addEventListener('click', function() { 
+
+    if(goldseats.value === '0' && premiumplusseats.value === '0'  && premiumseats.value === '0'){
+      alert('Please purchase at least 1 ticket');
+    } else {
+      var totalgoldseats = calcPrice(goldseats.value, 500);
+      var totalpremiumplusseats = calcPrice(premiumplusseats.value, 200);
+      var totalpremiumseats = calcPrice(premiumseats.value, 150);
+
+      var totalPrice = totalgoldseats + totalpremiumplusseats + totalpremiumseats;
+      var totalTix = parseInt(goldseats.value) + parseInt(premiumplusseats.value) + parseInt(premiumseats.value);
+
+      getMessage(totalTix, totalPrice);
+    }
+
+   });
+   </script>
+<button id="myButton" class="float-left submit-button" >Seat Layout</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "seatbookingfinal.html";
+    }
+
+    </script>
+<button id="newbutton" class="float-left submit-button" >Payment Options</button>
+
+<script type="text/javascript">
+    document.getElementById("newButton").onclick = function () {
+        location.href = "paymentfinal.html";
+    }
+    </script>
+
+   </body>
+   </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+    
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 4%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+}
+
+.dd{
+    font-size: smaller;
+    top: 2px;
+    }
+
+    .rr{
+        font-size: medium;
+        
+    }
+</style>
+<body>
+    <h3><b>Cinemas </b></h3>
+    <br>
+    
+    <div class="wrap">
+        <div class="search">
+           <input type="text" class="searchTerm" placeholder="search for nearby cinemas">
+           <button type="submit" class="searchButton">
+            <div class="icon"> <i class="fas fa-fire"></i></div>
+            <body>
+          </button>
+        </div>
+     </div>
+    <br>
+     <p class="rr"><b><a href="ticketsfinal.html">NERU : PVR Cinemas</a></b></p>
+     <p class="dd"> 2023 Malayalam Movie : Base-Emotional Drama</p>
+        <hr>
+
+        <br>
+        <p class="rr"><b><a href="ticketsfinalsalaar.html">SALAAR: Vanitha-Veneetha Cineplex</a></b></p>
+        <p class="dd">Highest-grossing Telugu film of 2023, third highest-grossing Telugu film of all time</p>
+           <hr>
+
+              <br>
+              <p class="rr"><b><a href="ticketsfinaldunki.html">DUNKI: Padma Cinema 2K 3D</a></b></p>
+              <p class="dd"> Hindi-language comedy drama film based </p>
+                 <hr>
+
+                 <br>
+                 <p class="rr"><b><a href="ticketsfinalfalimy.html">Falimy :Sridar Cinemas</a></b></p>
+                 <p class="dd"> Malayalam-language comedy-drama film</p>
+                    <hr>
+
+                   
+</body>
+</html>

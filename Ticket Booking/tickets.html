@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>Purchase your tickets online! </p>
+    <ul>
+      <li>Rs 500 - Gold</li>
+      <li>Rs 200 - Premium Plus</li>
+      <li>Rs 150 - Premium</li>
+    </ul>
+    <p>
+        <label for="tickets_quantity">Tickets</label>
+        <input type="number" min="0" name="seats gold" id="Seats Gold" required />
+      </p>
+    
+    <label>Seats: </label><input type="text" id="Seats Gold" value="0"> <label>Gold</label>
+    <br><br>
+    <label>Seats: </label><input type="text" id="Seats Premium Plus" value="0"> <label>Premium Plus</label>
+    <br><br>
+    <label>Seats: </label><input type="text" id="Seats Premium" value="0"> <label>Premium</label>
+    
+    <br><br>
+    <button type="submit" id="submitButton">Submit</button>
+    
+    <p id="totalPrice"></p>
+    <p>
+        <label for="tickets_quantity"># Tickets</label>
+        <input type="number" min="1" name="tickets_quantity" id="tickets_quantity" required />
+      </p>
+
+
+
+<script>
+// declare all variables
+   var goldseats = document.getElementById('Seats Gold');
+   var premiumplusseats = document.getElementById('Seats Premium Plus');
+   var premiumseats = document.getElementById('Seats Premium');
+   var submitBtn = document.getElementById('submitButton');
+   var outputPara = document.getElementById('totalPrice');
+   
+   // generic function that takes in quantity and multiplies with appropriate price
+   function calcPrice(qty, price){
+     return qty * price;
+   }
+
+   // generic function that outputs final price and amout it tickets purchased
+   function getMessage(goldseats, total){
+     return outputPara.innerHTML = 'You purchased ' + goldseats + ' ticket(s) and your total price is Rs ' + total + '<br><br>' + '<button>Proceed To Checkout</button>';
+   }
+
+   submitBtn.addEventListener('click', function() { 
+
+    if(goldseats.value === '0' && premiumplusseats.value === '0'  && premiumseats.value === '0'){
+      alert('Please purchase at least 1 ticket');
+    } else {
+      var totalgoldseats = calcPrice(goldseats.value, 500);
+      var totalpremiumplusseats = calcPrice(premiumplusseats.value, 200);
+      var totalpremiumseats = calcPrice(premiumseats.value, 150);
+
+      var totalPrice = totalgoldseats + totalpremiumplusseats + totalpremiumseats;
+      var totalTix = parseInt(goldseats.value) + parseInt(premiumplusseats.value) + parseInt(premiumseats.value);
+
+      getMessage(totalTix, totalPrice);
+    }
+
+   });
+   </script>
+   </body>
+   </html>
